@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor(red: 65/255, green: 148/255, blue: 115/255, alpha: 1)
 
         labelGoodjob.sizeToFit()
-        labelGoodjob.text = "잘하셨어요! \n오늘 마신 양은"
+        labelGoodjob.text = "마신 물의 양을 \n입력하세요"
         labelGoodjob.textColor = .white
         labelGoodjob.font = UIFont.systemFont(ofSize: 26, weight: .medium)
         
@@ -63,6 +63,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func waterBtn(_ sender: UIButton) {
+        labelGoodjob.text = "잘하셨어요!\n오늘 마신 양은"
+        
         perposerWater = Double((UserDefaults.standard.integer(forKey: "height") + UserDefaults.standard.integer(forKey: "weight")) / 100)
         yourWater.text = "\(UserDefaults.standard.string(forKey: "nickname") ?? "")님의 하루 물 섭취 권장량은 \(perposerWater)L 입니다"
         print(perposerWater)
@@ -137,7 +139,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if purposeWaterPer == 100.0 {
             
              imgaeView.image = UIImage(named: images[8])
+     
        }
+        
         
 //        let img1: UIImage = UIImage(named: "1-1")!
 //        let img2: UIImage = UIImage(named: "1-2")!
@@ -161,12 +165,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
         totalWater = 0.0
         insertWater = 0
         purposeWaterPer = 0.0
+        textFieldWater.text = ""
+        imgaeView.image = UIImage(named: images[0])
+        labelGoodjob.text = "마신 물의 양을 \n입력하세요"
         
         UserDefaults.standard.removeObject(forKey: "water")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func shakeTextField(textField: UITextField)-> Void {
+        UIView.animate(withDuration: 0.2, animations: {
+                textField.frame.origin.x -= 10
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2, animations: {
+                    textField.frame.origin.x += 20
+                 }, completion: { _ in
+                     UIView.animate(withDuration: 0.2, animations: {
+                        textField.frame.origin.x -= 10
+                    })
+                })
+            })
+        //
     }
     
 }
