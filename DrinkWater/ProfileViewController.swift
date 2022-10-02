@@ -9,13 +9,19 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var view3: UILabel!
+    
+    @IBOutlet weak var view1: UILabel!
+    
+  
+    @IBOutlet weak var view2: UILabel!
+    
     
     @IBOutlet weak var lblNickname: UILabel!
     
     @IBOutlet weak var lblheight: UILabel!
     
     @IBOutlet weak var lblWeght: UILabel!
-    
     
     @IBOutlet weak var tfNickname: UITextField!
     
@@ -28,6 +34,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.sendSubviewToBack(view1)
+        self.view.sendSubviewToBack(view2)
+        self.view.sendSubviewToBack(view3)
         
         self.navigationItem.backBarButtonItem?.tintColor = .white
         
