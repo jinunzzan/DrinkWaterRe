@@ -8,8 +8,8 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
-
+    
+    
     @IBOutlet weak var lblNickname: UILabel!
     
     @IBOutlet weak var lblheight: UILabel!
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.backBarButtonItem?.tintColor = .white
-       
+        
         self.view.backgroundColor = UIColor(red: 65/255, green: 148/255, blue: 115/255, alpha: 1)
         
         lblNickname.text = "닉네임을 설정해주세요"
@@ -48,8 +48,9 @@ class ProfileViewController: UIViewController {
         ///textField
         tfNickname.backgroundColor = UIColor(red: 65/255, green: 148/255, blue: 115/255, alpha: 1)
         tfNickname.borderStyle = .none
+        
         tfNickname.placeholder = "닉네임을 입력해주세요"
-       
+        
         tfHeight.backgroundColor = UIColor(red: 65/255, green: 148/255, blue: 115/255, alpha: 1)
         tfHeight.borderStyle = .none
         tfHeight.placeholder = "키를 입력해주세요"
@@ -57,36 +58,39 @@ class ProfileViewController: UIViewController {
         tfWeight.backgroundColor = UIColor(red: 65/255, green: 148/255, blue: 115/255, alpha: 1)
         tfWeight.borderStyle = .none
         tfWeight.placeholder = "몸무게를 입력해주세요"
-        
-      
     }
-
+    
     @IBAction func saveBtn(_ sender: Any) {
-        
-        
-       
         let userNickNameSet = tfNickname.text
         UserDefaults.standard.set(userNickNameSet, forKey: "nickname")
         
-       
+        
         let userHeightSet = tfHeight.text
         UserDefaults.standard.set(userHeightSet, forKey: "height")
         
         
-       
+        
         let userWeightSet = tfWeight.text
         UserDefaults.standard.set(userWeightSet, forKey: "weight")
         
         print(userNickNameSet ?? "")
         print(userHeightSet ?? 0)
         print(userWeightSet ?? 0)
+        checkSave()
+    }
+    func checkSave() {
+        let alertSave = UIAlertController(title: "저장되었습니다", message: "", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alertSave.addAction(ok)
+        present(alertSave, animated: true, completion: nil)
         
-        
+        tfNickname.text = ""
+        tfWeight.text = ""
+        tfHeight.text = ""
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
-        }
+        self.view.endEditing(true)
+    }
     
-    
-    
+   
 }
