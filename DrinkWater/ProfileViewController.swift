@@ -80,6 +80,8 @@ class ProfileViewController: UIViewController {
         print(userNickNameSet ?? "")
         print(userHeightSet ?? 0)
         print(userWeightSet ?? 0)
+        
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)

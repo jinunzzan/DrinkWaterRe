@@ -50,8 +50,8 @@
                                     <action selector="waterBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8U9-LL-aMw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="labelddddd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAT-v3-J4j">
-                                <rect key="frame" x="0.0" y="721" width="390" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAT-v3-J4j">
+                                <rect key="frame" x="0.0" y="742" width="390" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,6 +63,12 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-dv-Lbj">
                                 <rect key="frame" x="40" y="168" width="0.0" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o59-Jq-RaZ">
+                                <rect key="frame" x="0.0" y="637" width="390" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,6 +87,7 @@
                             <constraint firstItem="3Jo-OE-9Vw" firstAttribute="top" secondItem="VAT-v3-J4j" secondAttribute="bottom" constant="8" symbolic="YES" id="BM3-p0-xJZ"/>
                             <constraint firstItem="VAT-v3-J4j" firstAttribute="leading" secondItem="3Jo-OE-9Vw" secondAttribute="leading" id="CXH-gr-37Q"/>
                             <constraint firstItem="3Jo-OE-9Vw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="F46-bQ-4Pl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o59-Jq-RaZ" secondAttribute="trailing" id="JPV-g3-JOW"/>
                             <constraint firstItem="4vH-dv-Lbj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="KiX-aL-VLd"/>
                             <constraint firstItem="p83-3s-sJ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M5G-3Z-paa"/>
                             <constraint firstItem="lJK-TN-RZg" firstAttribute="top" secondItem="J8z-Tb-NjP" secondAttribute="bottom" constant="20" id="Pq3-nX-uJe"/>
@@ -97,11 +104,13 @@
                             <constraint firstItem="J8z-Tb-NjP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kpm-EC-Je0"/>
                             <constraint firstItem="3Jo-OE-9Vw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="msP-gZ-HXv"/>
                             <constraint firstItem="J8z-Tb-NjP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="q6G-Qc-3nf"/>
+                            <constraint firstItem="o59-Jq-RaZ" firstAttribute="top" secondItem="lJK-TN-RZg" secondAttribute="bottom" constant="20" id="tXC-NT-174"/>
                             <constraint firstItem="p83-3s-sJ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tb3-5W-PTL"/>
                             <constraint firstItem="3Jo-OE-9Vw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tgd-75-beT"/>
                             <constraint firstItem="QEH-Wm-2RB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="vpf-tw-DVQ"/>
                             <constraint firstItem="4vH-dv-Lbj" firstAttribute="top" secondItem="p83-3s-sJ6" secondAttribute="bottom" constant="6" id="wXp-tW-8ew"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4vH-dv-Lbj" secondAttribute="trailing" symbolic="YES" id="xME-f7-QZE"/>
+                            <constraint firstItem="o59-Jq-RaZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y4q-Uc-GaN"/>
                             <constraint firstItem="VAT-v3-J4j" firstAttribute="leading" secondItem="3Jo-OE-9Vw" secondAttribute="leading" id="zn8-7X-qvj"/>
                         </constraints>
                     </view>
@@ -135,11 +144,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnWater" destination="3Jo-OE-9Vw" id="x26-Gi-TFB"/>
                         <outlet property="imgaeView" destination="J8z-Tb-NjP" id="Xh8-Ae-N2W"/>
                         <outlet property="labelGoodjob" destination="p83-3s-sJ6" id="ntk-Us-VZh"/>
                         <outlet property="ml" destination="4vH-dv-Lbj" id="Ntm-wd-4QI"/>
                         <outlet property="percent" destination="QEH-Wm-2RB" id="fye-Pt-3ct"/>
                         <outlet property="profileBtn" destination="2wj-cO-vaV" id="ZMn-JY-ho1"/>
+                        <outlet property="purWater100" destination="o59-Jq-RaZ" id="jRE-fQ-mlp"/>
                         <outlet property="textFieldWater" destination="lJK-TN-RZg" id="KVY-8l-rTI"/>
                         <outlet property="yourWater" destination="VAT-v3-J4j" id="esj-w2-SFZ"/>
                     </connections>

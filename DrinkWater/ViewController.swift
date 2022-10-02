@@ -15,7 +15,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // 오늘 마신 양
     var insertWater = 0
     
+    @IBOutlet weak var btnWater: UIButton!
     
+    @IBOutlet weak var purWater100: UILabel!
     @IBOutlet weak var imgaeView: UIImageView!
     @IBOutlet weak var labelGoodjob: UILabel!
     @IBOutlet weak var percent: UILabel!
@@ -59,7 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textFieldWater.font = UIFont.systemFont(ofSize: 40)
         textFieldWater.textColor = .white
         
-        
+       
     }
     
     @IBAction func waterBtn(_ sender: UIButton) {
@@ -139,18 +141,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if purposeWaterPer == 100.0 {
             
              imgaeView.image = UIImage(named: images[8])
-     
+            btnWater.isEnabled = false
+//            shakeTextField(textField: textFieldWater)
+            purWater100.text = "목표 섭취 권장량을 달성하셨습니다"
+            purWater100.textColor = .white
+            purWater100.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+            purWater100.textAlignment = .center
+            
        }
         
         
-//        let img1: UIImage = UIImage(named: "1-1")!
-//        let img2: UIImage = UIImage(named: "1-2")!
-//        let img3: UIImage = UIImage(named: "1-3")!
-//        let img4: UIImage = UIImage(named: "1-4")!
-//        let img5: UIImage = UIImage(named: "1-5")!
-//        let img6: UIImage = UIImage(named: "1-6")!
-//        let img7: UIImage = UIImage(named: "1-7")!
-//        let img8: UIImage = UIImage(named: "1-8")!
+      
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -168,8 +169,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textFieldWater.text = ""
         imgaeView.image = UIImage(named: images[0])
         labelGoodjob.text = "마신 물의 양을 \n입력하세요"
-        
+        purWater100.text = ""
         UserDefaults.standard.removeObject(forKey: "water")
+        btnWater.isEnabled = true
+        
+       
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -189,6 +193,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 })
             })
         //
+       
     }
     
 }
