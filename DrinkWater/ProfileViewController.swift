@@ -9,6 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    
     @IBOutlet weak var view3: UILabel!
     
     @IBOutlet weak var view1: UILabel!
@@ -34,6 +35,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        
+        
+        
+        
         
         self.view.sendSubviewToBack(view1)
         self.view.sendSubviewToBack(view2)
@@ -101,6 +108,6 @@ class ProfileViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+   
    
 }

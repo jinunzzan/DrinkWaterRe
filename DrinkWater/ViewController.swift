@@ -39,6 +39,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setDisplay() {
+        if ((UserDefaults.standard.string(forKey: "nickname")?.isEmpty) == nil) {
+            yourWater.text = ""
+        }
+    
         print("첫번재화면")
         self.navigationController?.navigationBar.tintColor = .white
         
@@ -61,6 +65,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textFieldWater.font = UIFont.systemFont(ofSize: 40)
         textFieldWater.textColor = .white
         
+        yourWater.text = "\(UserDefaults.standard.string(forKey: "nickname") ?? "")님의 하루 물 섭취 권장량은 \(Double((UserDefaults.standard.integer(forKey: "height") + UserDefaults.standard.integer(forKey: "weight")) / 100))L 입니다"
        
     }
     
@@ -96,6 +101,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         percent.font = UIFont.systemFont(ofSize: 15)
         // 오늘 섭취량
         ml.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+       
         ml.text = "\(totalWater)ml"
         ml.textColor = .white
         
@@ -142,6 +148,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
              imgaeView.image = UIImage(named: images[8])
             btnWater.isEnabled = false
+            
 //            shakeTextField(textField: textFieldWater)
             purWater100.text = "목표 섭취 권장량을 달성하셨습니다"
             purWater100.textColor = .white
@@ -149,6 +156,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             purWater100.textAlignment = .center
             
        }
+      
         
         
       
@@ -160,7 +168,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func resetBtn(_ sender: UIButton) {
-        yourWater.text = ""
+        
         percent.text = ""
         ml.text = ""
         totalWater = 0.0
@@ -172,6 +180,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         purWater100.text = ""
         UserDefaults.standard.removeObject(forKey: "water")
         btnWater.isEnabled = true
+        
+        if ((UserDefaults.standard.string(forKey: "nickname")?.isEmpty) == nil) {
+            yourWater.text = ""
+        }
         
        
     }
