@@ -16,22 +16,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var insertWater = 0
     
     
+    @IBOutlet weak var imgaeView: UIImageView!
     @IBOutlet weak var labelGoodjob: UILabel!
-    
     @IBOutlet weak var percent: UILabel!
-    
-    
     @IBOutlet weak var yourWater: UILabel!
-    
-    
     @IBOutlet weak var profileBtn: UIBarButtonItem!
-    
     @IBOutlet weak var ml: UILabel!
-    
-    
     @IBOutlet weak var textFieldWater: UITextField!
+   
     
-    @IBOutlet weak var img: UIImageView!
+    let images = ["1-1","1-2", "1-3", "1-4", "1-5", "1-6", "1-7", "1-8", "1-9"]
+    var currentIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.tintColor = .white
         
         self.view.backgroundColor = UIColor(red: 65/255, green: 148/255, blue: 115/255, alpha: 1)
-        
-        // 잘하셨어요 부분
+
         labelGoodjob.sizeToFit()
         labelGoodjob.text = "잘하셨어요! \n오늘 마신 양은"
         labelGoodjob.textColor = .white
@@ -64,6 +58,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textFieldWater.borderStyle = .none
         textFieldWater.font = UIFont.systemFont(ofSize: 40)
         textFieldWater.textColor = .white
+        
+        
     }
     
     @IBAction func waterBtn(_ sender: UIButton) {
@@ -102,14 +98,55 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textFieldWater.text = "\(insertWaterSet ?? "")ml"
         
         //이미지 바꾸기
-        let img1: UIImage = UIImage(named: "1-1")!
-        let img2: UIImage = UIImage(named: "1-2")!
-        let img3: UIImage = UIImage(named: "1-3")!
-        let img4: UIImage = UIImage(named: "1-4")!
-        let img5: UIImage = UIImage(named: "1-5")!
-        let img6: UIImage = UIImage(named: "1-6")!
-        let img7: UIImage = UIImage(named: "1-7")!
-        let img8: UIImage = UIImage(named: "1-8")!
+        
+        let image:UIImage? = UIImage(named: images[currentIndex])
+        imgaeView.image = image
+        
+        if purposeWaterPer >= 0 {
+           
+            imgaeView.image = UIImage(named: images[0])
+        }
+        if purposeWaterPer >= 20 {
+            
+             imgaeView.image = UIImage(named: images[1])
+        }
+        if purposeWaterPer >= 30 {
+            
+             imgaeView.image = UIImage(named: images[2])
+        }
+        if purposeWaterPer >= 40.0 {
+            
+             imgaeView.image = UIImage(named: images[3])
+        }
+        if purposeWaterPer >= 50.0 {
+            
+             imgaeView.image = UIImage(named: images[4])
+        }
+        if purposeWaterPer >= 60.0 {
+            
+             imgaeView.image = UIImage(named: images[5])
+        }
+        if purposeWaterPer >= 70.0 {
+            
+             imgaeView.image = UIImage(named: images[6])
+        }
+        if purposeWaterPer >= 80.0 {
+           
+             imgaeView.image = UIImage(named: images[7])
+        }
+        if purposeWaterPer == 100.0 {
+            
+             imgaeView.image = UIImage(named: images[8])
+       }
+        
+//        let img1: UIImage = UIImage(named: "1-1")!
+//        let img2: UIImage = UIImage(named: "1-2")!
+//        let img3: UIImage = UIImage(named: "1-3")!
+//        let img4: UIImage = UIImage(named: "1-4")!
+//        let img5: UIImage = UIImage(named: "1-5")!
+//        let img6: UIImage = UIImage(named: "1-6")!
+//        let img7: UIImage = UIImage(named: "1-7")!
+//        let img8: UIImage = UIImage(named: "1-8")!
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

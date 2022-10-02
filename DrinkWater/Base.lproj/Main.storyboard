@@ -135,7 +135,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="img" destination="J8z-Tb-NjP" id="Qw3-xT-8oM"/>
+                        <outlet property="imgaeView" destination="J8z-Tb-NjP" id="Xh8-Ae-N2W"/>
                         <outlet property="labelGoodjob" destination="p83-3s-sJ6" id="ntk-Us-VZh"/>
                         <outlet property="ml" destination="4vH-dv-Lbj" id="Ntm-wd-4QI"/>
                         <outlet property="percent" destination="QEH-Wm-2RB" id="fye-Pt-3ct"/>
