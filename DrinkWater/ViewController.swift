@@ -86,6 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         purposeWaterPer = (Double(totalWater) / Double((perposerWater * 1000))) * 100
         let waterPer = String(format: "%.0f", purposeWaterPer)
         let totalWater = String(format: "%.0f", totalWater)
+        print(totalWater)
         
         //퍼센트
         // 출력
